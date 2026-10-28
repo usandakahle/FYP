@@ -1,0 +1,51 @@
+runSixPosCal  (20261007_143815)
+ICM-20649 | +/-4 g, +/-500 dps, 100 Hz | g0 = 9.80665 m/s^2 | trim 5.0 s, tilt limit 2.0 deg
+
+--- Position means ---
+pos             ax          ay          az            gx          gy          gz
+            [m/s2]      [m/s2]      [m/s2]       [rad/s]     [rad/s]     [rad/s]
+xup        0.04556    -9.82668    -0.50562     -0.031851    0.020792    0.015385
+xdown      0.43048     9.75484     0.69078     -0.031467    0.021273    0.015087
+yup       -9.83507     0.05917     0.22244     -0.030889    0.021533    0.015001
+ydown      9.75473    -0.58692     0.16016     -0.030638    0.021257    0.015152
+zup       -0.06564    -0.31184    10.01666     -0.032005    0.021319    0.015057
+zdown      0.30502     0.18733    -9.63081     -0.031890    0.021017    0.014990
+
+--- Data quality ---
+pos          N      fs    std ax    std ay    std az     tilt
+                  [Hz]      [mg]      [mg]      [mg]    [deg]
+ydown    11000   100.0      6.25      3.48      5.51     2.96
+yup      10999   100.0      4.44      4.12      7.86     4.77
+xdown    11000   100.0      3.27      3.52      5.90     1.34
+xup      10999   100.0      3.33      3.46      4.43     3.57
+zup      10999   100.0      3.29      3.46      4.27     1.82
+zdown    10999   100.0      3.91      4.20      4.37     2.13
+WARNING: tilt > 2.0 deg (box face not level)
+
+--- Accel (per-axis) ---
+Model: a_raw = scale*a_true + bias
+axis   bias[m/s2]   bias[mg]   scale[-]  scale err[%]
+X         -0.0402      -4.10    0.99880        -0.120
+Y         -0.0359      -3.66    0.99838        -0.162
+Z          0.1929      19.67    1.00174         0.174
+
+--- Accel (full model) ---
+Model: a_true = S \ (a_raw - b)
+S (diag = scale, off-diag = cross-axis coupling):
+      0.99880    0.01963   -0.01890
+     -0.03294    0.99838   -0.02545
+     -0.00318    0.06100    1.00174
+b [m/s2]:    0.10585   -0.12068    0.15894
+b [mg]  :      10.79     -12.31      16.21
+                                                     [ 10.79    -12.31     16.21   ] mg
+Max cross-axis coupling                              6.10 %
+Residual |a| - 1 g, RMS                              10.00 mg  (raw 11.65 mg)
+
+--- Gyro bias ---
+Model: w_true = w_raw - bias
+axis  bias[rad/s]  bias[dps]    spread[dps] noise std[dps]
+X        -0.03146    -1.8023         0.0328         0.3203
+Y         0.02120     1.2146         0.0148         0.2884
+Z         0.01511     0.8659         0.0084         0.2833
+
+Stored in imu_calibration.mat (variable: calib).

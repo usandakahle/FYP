@@ -1,0 +1,29 @@
+runNoiseSweep  (20261004_134704)
+ICM-20649 | 6.00 h at 100 Hz (2,160,000 samples) | Wave band 0.03-0.5 Hz
+
+--- Allan ---
+[FAIL] Gyro white noise vs datasheet                0.0352 deg/s/rtHz vs 0.0175 (x2.01, axis Y), limit x1.5
+[PASS] Gyro bias instability resolved               minimum at tau = 233 s, record supports tau <= 2400 s
+[FAIL] Gyro shows no rate ramp (thermal)            ramp share of variance at tau_max = 91%, limit 25%
+[PASS] Gyro Allan curve follows the noise model     log-fit rms = 0.07, limit 0.30
+[FAIL] Accel white noise vs datasheet               593 ug/rtHz vs 285 (x2.08, axis Z), limit x1.5
+[PASS] Accel Allan curve follows the noise model    log-fit rms = 0.09, limit 0.30
+
+--- PSD ---
+[PASS] Gyro PSD floor matches Allan                 PSD/Allan = 0.97..0.98, limit x1.3
+[PASS] Gyro angle noise in wave band                0.037 deg RMS, limit 0.057 deg
+[PASS] Gyro no excess low-frequency noise           ASD at band edge = x1.2 of white floor, limit x3.0
+[PASS] Gyro no tone inside wave band                0 tones in band
+[PASS] Accel PSD floor matches Allan                PSD/Allan = 0.98, limit x1.3
+[PASS] Accel tilt noise in wave band                0.022 deg RMS, limit 0.057 deg
+[PASS] Accel no excess low-frequency noise          ASD at band edge = x1.4 of white floor, limit x3.0
+[PASS] Accel no tone inside wave band               0 tones in band
+
+--- Bias ---
+[PASS] Board level (gravity on expected axis)       gravity on axis 3, |a_3| = 10.02 m/s^2
+[FAIL] Gyro turn-on bias small                      1.794 deg/s, limit 1.00
+[PASS] Gyro drift over record small                 0.026 deg/s per hour, limit 0.50
+[PASS] Accel magnitude equals 1 g                   |a| = 10.030 m/s^2 (+2.3%), limit +/-3%
+[FAIL] Accel horizontal offset small                0.034 g = 1.9 deg static tilt, limit 0.020 g
+
+RESULT: 5 of 19 checks failed.
